@@ -28,12 +28,22 @@ class Event
     }
 
     /**
-     * Get validatedEvents
+     * Get validated Events
      * 
-     * @return [type] [description]
+     * @return mixed validated events
      */
-    public function getValidEvents()
+    public function getValidEvents($now)
     {
+        date_default_timezone_set('Asia/Taipei');
+        
+        $validEvents = array();
 
+        foreach($this->events as $event) {
+            if(strtotime($event['start_date']) > $now) {
+                array_push($validEvents, $event);
+            }
+        }
+
+        return $validEvents;
     }
 }
