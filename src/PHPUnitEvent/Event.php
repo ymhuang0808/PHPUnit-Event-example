@@ -4,7 +4,7 @@ namespace PHPUnitEvent;
 
 class Event
 {
-	private $events = array();
+    private $events = array();
 
     /**
      * Gets the value of events.
