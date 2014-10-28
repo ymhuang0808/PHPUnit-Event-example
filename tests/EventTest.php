@@ -27,7 +27,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
         ];
 
         $event->setEvents($eventArray);
-        $this->assertCount(, $event->getEvents());
+        $this->assertCount(3, $event->getEvents());
 
         return $event;
     }
