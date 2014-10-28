@@ -34,6 +34,9 @@ class Event
      */
     public function getValidEvents($now)
     {
+        if(!is_int($now))
+            throw new \InvalidArgumentException("The argument is not integer type", 4);
+
         date_default_timezone_set('Asia/Taipei');
         
         $validEvents = array();
