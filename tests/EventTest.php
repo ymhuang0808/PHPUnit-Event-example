@@ -2,7 +2,7 @@
 
 class EvnetTest extends \PHPUnit_Framework_TestCase
 {
-    public function testSetAndGetEvent()
+    public function testSetAndGetEvents()
     {
         $event = new \PHPUnitEvent\Event();
         $eventArray = [
