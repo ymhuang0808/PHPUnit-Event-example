@@ -2,7 +2,7 @@
 
 class EvnetTest extends \PHPUnit_Framework_TestCase
 {
-    public function testSetAndGetEvent()
+    public function testSetAndGetEvents()
     {
         $event = new \PHPUnitEvent\Event();
         $eventArray = [
@@ -27,13 +27,13 @@ class EvnetTest extends \PHPUnit_Framework_TestCase
         ];
 
         $event->setEvents($eventArray);
-        $this->assertCount(3, $event->getEvents());
+        $this->assertCount(, $event->getEvents());
 
         return $event;
     }
 
     /**
-     * @depends testSetAndGetEvent 
+     * @depends testSetAndGetEvents 
      */
     public function testGetValidEvents($event)
     {
