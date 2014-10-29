@@ -2,8 +2,21 @@
 
 class EventTest extends \PHPUnit_Framework_TestCase
 {
+    private $event;
+
+    public function setUp()
+    {
+        $this->event = new \PHPUnitEvent\Event();
+    }
+
+    public function tearDown()
+    {
+        $this->event = null;
+    }
+
     public function eventsProvider()
     {
+        // ignore
         return [
             [
                 [
@@ -35,9 +48,9 @@ class EventTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetAndGetEvents($eventArray)
     {
-        $event = new \PHPUnitEvent\Event();
-        $event->setEvents($eventArray);
-        $this->assertCount(3, $event->getEvents());
+        //$event = new \PHPUnitEvent\Event();
+        $this->event->setEvents($eventArray);
+        $this->assertCount(3, $this->event->getEvents());
     }
 
     /**
@@ -46,6 +59,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
     public function testGetValidEvents($eventArray)
     {
         $expectedValidEvent = [
+            // ...
             [
                 'name' => 'Learning Ruby on Rails',
                 'start_date' => '2014-11-02 09:30',
@@ -60,9 +74,9 @@ class EventTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $event = new \PHPUnitEvent\Event();
-        $event->setEvents($eventArray);
-        $validEvents = $event->getValidEvents(1414421687);
+        //$event = new \PHPUnitEvent\Event();
+        $this->event->setEvents($eventArray);
+        $validEvents = $this->event->getValidEvents(1414421687);
         $this->assertCount(2, $validEvents);
         $this->assertSame($expectedValidEvent, $validEvents);
     }
