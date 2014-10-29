@@ -38,17 +38,13 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $event = new \PHPUnitEvent\Event();
         $event->setEvents($eventArray);
         $this->assertCount(3, $event->getEvents());
-
-        return $event;
     }
 
     /**
-     * @depends testSetAndGetEvents
+     * @dataProvider eventsProvider
      */
-    public function testGetValidEvents($event)
+    public function testGetValidEvents($eventArray)
     {
-        var_dump($event);
-
         $expectedValidEvent = [
             [
                 'name' => 'Learning Ruby on Rails',
@@ -64,6 +60,8 @@ class EventTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
+        $event = new \PHPUnitEvent\Event();
+        $event->setEvents($eventArray);
         $validEvents = $event->getValidEvents(1414421687);
         $this->assertCount(2, $validEvents);
         $this->assertSame($expectedValidEvent, $validEvents);
